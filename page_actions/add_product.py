@@ -5,9 +5,7 @@ from playwright.sync_api import Page
 
 
 class AddProduct:
-    print("вызов гет продакт")
     get_product = GetProduct()
-    print("после вызова гет продакт")
 
     @staticmethod
     def add_product_to_cart(page: Page, product):
