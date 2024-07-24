@@ -1,4 +1,4 @@
-from utils.selectors import *
+from utils.selectors import * # лучше так не импортировать, лучше конкретные функции и тд
 
 
 class CheckProduct:
@@ -9,6 +9,7 @@ class CheckProduct:
         page.wait_for_load_state("networkidle")
 
         # Проверяем, что товар находится в корзине
+        # такой таймаут плохо, что если все загрузиться через 1 секунду? а что если не успеет за 5?
         page.wait_for_timeout(5000)
         cart_items = page.query_selector_all(items_in_cart)
         assert any(

@@ -11,6 +11,7 @@ import pytest
 def test_add_random_product_to_cart(page, product_type, selector):
     random_product, product_name = GetProduct.get_random_product_selector(selector, page)
     AddProduct.add_product_to_cart(page, random_product)
+    # AddProduct and CheckProduct вынести в фикстуры
     CheckProduct.check_product_in_cart(page, product_name)
 
 
