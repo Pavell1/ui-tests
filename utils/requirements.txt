@@ -1,3 +1,4 @@
-pytest
+pytest == 8.3.1
+# как узнать текущую версию? не могу найти в poetry
 pytest-playwright
 playwright
