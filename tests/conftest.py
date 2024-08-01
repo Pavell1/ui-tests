@@ -1,5 +1,8 @@
 import pytest
 from playwright.sync_api import sync_playwright
+
+from page_actions.add_product import AddProduct
+from page_actions.check_product import CheckProduct
 from utils.constants import URL
 from utils import constants
 
@@ -20,3 +23,13 @@ def page(browser):
     page.wait_for_load_state(constants.NETWORKIDLE)
     yield page
     context.close()
+
+
+@pytest.fixture()
+def add_product() -> AddProduct:
+    return AddProduct()
+
+
+@pytest.fixture()
+def check_product() -> CheckProduct:
+    return CheckProduct()

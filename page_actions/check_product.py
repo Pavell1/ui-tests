@@ -11,6 +11,7 @@ class CheckProduct:
         page.wait_for_load_state(constants.NETWORKIDLE)
 
         # Проверяем, что товар находится в корзине
+        page.wait_for_load_state()
         page.wait_for_selector(constants.LIST_OF_PRODUCTS, state='visible')
         cart_items = page.query_selector_all(selectors.items_in_cart)
         assert (

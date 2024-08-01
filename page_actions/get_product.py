@@ -1,6 +1,7 @@
 import random
+
 from playwright.sync_api import Page
-from utils.constants import LIST_OF_PRODUCTS
+
 from page_objects import selectors
 
 
@@ -9,7 +10,8 @@ class GetProduct:
     def get_random_product_selector(category_selector: str, page: Page):
         # Открываем категорию
         page.click(category_selector)
-        page.wait_for_selector(LIST_OF_PRODUCTS, state='visible')
+        page.wait_for_timeout(5000)
+        # page.wait_for_selector(LIST_OF_PRODUCTS, state='visible')
 
         # Получаем список всех товаров в категории
         products = page.query_selector_all(selectors.items_in_category)
